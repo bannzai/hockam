@@ -196,7 +196,6 @@ DEPENDENCIES
   rails (~> 6.0.2, >= 6.0.2.1)
   spring
   spring-watcher-listen (~> 2.0.0)
-  tzinfo-data
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
 
