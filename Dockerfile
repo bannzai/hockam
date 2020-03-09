@@ -11,7 +11,6 @@ RUN gem install bundler:$BUNDLER_VERSION
 
 WORKDIR /usr/src/hockam
 
-
 ARG RAILS_ENV
 ENV RAILS_ENV ${RAILS_ENV:-development}
 COPY Gemfile Gemfile.lock ./
@@ -28,8 +27,6 @@ COPY . ./
 
 # Add a script to be executed every time the container starts.
 # See also https://docs.docker.com/compose/rails/
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+RUN rm -f /myapp/tmp/pids/server.pid
 
-CMD ["bundle", "exec", "foreman", "start", "-f", "Procfile.prod"]
+CMD ["bundle", "exec", "foreman", "start", "-f", "Procfile.development"]
