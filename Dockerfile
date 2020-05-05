@@ -1,7 +1,26 @@
 FROM ruby:2.6.5-alpine
 
 RUN apk update && \
-    apk add --no-cache yarn mysql-client mysql-dev tzdata libxml2-dev curl-dev make gcc libc-dev g++
+		apk add --no-cache \
+			curl \
+			curl-dev \
+			nodejs \
+			libstdc++ \
+			libxml2-dev \
+			libxslt-dev \
+			linux-headers \
+			mysql-client \
+			mysql-dev \
+			pcre \
+			ruby-dev \
+			ruby-json \
+			tzdata \
+			yaml \
+			yaml-dev \
+			bash \
+			build-base \
+			yarn \
+			zlib-dev 
 
 ENV TZ=Asia/Tokyo
 
@@ -27,6 +46,6 @@ COPY . ./
 
 # Add a script to be executed every time the container starts.
 # See also https://docs.docker.com/compose/rails/
-RUN rm -f /myapp/tmp/pids/server.pid
+RUN rm -f /usr/src/hockam/tmp/pids/server.pid
 
-CMD ["bundle", "exec", "foreman", "start", "-f", "Procfile.development"]
+# CMD ["bundle", "exec", "foreman", "start", "-f", "Procfile.development"]
