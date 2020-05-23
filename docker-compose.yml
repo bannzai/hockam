@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  db:
+    image: mysql:8.0.19
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    ports:
+      - 3306
+    volumes:
+      - ./db/mysql/volumes:/var/lib/mysql
+  rails:
+    build: .
+    command: bundle exec foreman start -f Procfile."$RAILS_ENV"
+    environment:
+      RAILS_ENV: $RAILS_ENV
+    volumes:
+      - .:/usr/src/hockam
+    ports:
+      - '3000:3000'
+      - '8000:8000'
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db

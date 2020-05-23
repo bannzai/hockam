@@ -1,0 +1,2 @@
+rails: rails s -p 3000
+webpacker: NODE_ENV=production ./bin/webpack 
