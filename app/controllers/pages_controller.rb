@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    render html: 'Hello, world'
+    render html: 'Hello, page'
   end
   def about
   end
