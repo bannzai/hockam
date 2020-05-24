@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   get 'pages/about'
-  root 'application#hello'
+  root 'pages#home'
 end
