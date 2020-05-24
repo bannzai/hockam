@@ -18,6 +18,11 @@ services:
       RAILS_ENV: $RAILS_ENV
     volumes:
       - .:/usr/src/hockam
+      # exclude volume
+      - /usr/src/hockam/vendor
+      - /usr/src/hockam/tmp
+      - /usr/src/hockam/log
+      - /usr/src/hockam/.git
     ports:
       - '3000:3000'
       - '8000:8000'
