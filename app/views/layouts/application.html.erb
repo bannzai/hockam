@@ -6,11 +6,11 @@
     <%= csp_meta_tag %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload', media: 'all'  %>
+    <%= stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload" %>
   </head>
 
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <%= link_to "sample app", '#', id: "logo" %>
         <nav>
