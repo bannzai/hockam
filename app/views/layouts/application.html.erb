@@ -11,14 +11,12 @@
 
   <body>
     <header class="navbar navbar-expand-lg navbar-light bg-light">
-			<%= link_to "atlier hockam", '#', { class: "navbar-brand" } %>
-      <div class="container">
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   '#' %></li>
-            <li><%= link_to "Help",   '#' %></li>
-            <li><%= link_to "Log in", '#' %></li>
-          </ul>
+        <div class="container">
+          <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+              <img src="<%= asset_pack_path 'media/images/logo.png' %>" class="d-inline-block align-top" alt="ブランド">
+              <p class="navbar-brand">atlier hockam</p>
+            </a>
         </nav>
       </div>
     </header>
