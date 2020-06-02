@@ -1,2 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 
+.navbar-brand {
+  position: relative;
+  width: 170px;
+  height: 200px;
+  left: 15px;
+  background-size: contain;
+}
+
