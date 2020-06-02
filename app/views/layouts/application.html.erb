@@ -10,16 +10,31 @@
   </head>
 
   <body>
-    <header class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-          <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">
-              <img src="<%= asset_pack_path 'media/images/logo.png' %>" class="d-inline-block align-top" alt="ブランド">
-              atlier hockam
-            </a>
-        </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="<%= asset_pack_path 'media/images/logo.png' %>" width="50" height="50" class="d-inline-block" alt="ブランド">
+        atlier hockam
+      </a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="ナビゲーションの切替">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">ホーム <span class="sr-only">(現位置)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">リンク1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">リンク2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">無効</a>
+          </li>
+        </ul>
       </div>
-    </header>
+    </nav>
     <div class="container">
     <%= yield %>
     </div>
