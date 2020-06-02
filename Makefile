@@ -14,3 +14,7 @@ compose:
 .PHONY: up
 up:
 	docker-compose up
+
+.PHONY: clean
+clean:
+	rm -rf tmp/cache/bootsnap-*
