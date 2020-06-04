@@ -68,6 +68,7 @@ GEM
     concurrent-ruby (1.1.6)
     crass (1.0.6)
     debug_inspector (0.0.3)
+    diffy (3.3.0)
     erubi (1.9.0)
     ffi (1.12.2)
     foreman (0.87.0)
@@ -147,6 +148,9 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    ridgepole (0.8.7)
+      activerecord (>= 5.0.1, < 6.1)
+      diffy
     ruby_dep (1.5.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
@@ -194,6 +198,7 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   rails (~> 6.0.2, >= 6.0.2.1)
+  ridgepole
   spring
   spring-watcher-listen (~> 2.0.0)
   web-console (>= 3.3.0)
