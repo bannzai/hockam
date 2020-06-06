@@ -4,12 +4,9 @@ CREATE_TIMESTAMP = 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
 UPDATE_TIMESTAMP = 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
 
 create_table "minne_goods", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", comment: "Goods data from https://minne.com/@umio" do |t|
-  def change
-    create_table :minne_goodses do |t|
-    t.integer :item_id, limit: 8 
-    t.string :name, null: false
-    t.string :large_image_url
-    t.column :created_at, CREATE_TIMESTAMP
-    t.column :updated_at, UPDATE_TIMESTAMP
-  end
+	t.integer :item_id, limit: 8 
+	t.string :name, null: false
+	t.string :large_image_url
+	t.column :created_at, CREATE_TIMESTAMP
+	t.column :updated_at, UPDATE_TIMESTAMP
 end
