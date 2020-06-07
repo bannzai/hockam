@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'nokogiri'
+require 'pry'
 
 namespace :minne_scraper do
   desc 'minne の umioのページから商品画像と情報を取得する'
@@ -10,10 +11,12 @@ namespace :minne_scraper do
       item_ids = pick_minne_item_ids(items_document)
       break if item_ids.size.zero?
       item_ids.each { |item_id| 
+        puts "start item_id: #{item_id}"
         item_document = document_for(item_url(item_id))
         name = name(item_document)
         large_image_url = large_image_url(item_document)
-        MinneGoods.upsert(item_id, name, large_image_url)
+        puts "item_id: #{item_id}, name: #{name}, large_image_url: #{large_image_url}"
+        #MinneGoods.upsert(item_id, name, large_image_url)
       }
       increment_page_index
     end
@@ -50,7 +53,8 @@ namespace :minne_scraper do
     doc.xpath('//*[@id="item_left"]/h1')[0].children&.to_s
   end
   def large_image_url(doc)
-    doc.xpath("//img[@class='items-large-image']")[0].src
+    binding.pry
+    doc.xpath("//*[@class='items-large-image']")[0].src
   end
 
   def notifiy_items_error
