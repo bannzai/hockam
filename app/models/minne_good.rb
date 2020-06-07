@@ -1,2 +1,0 @@
-class MinneGood < ApplicationRecord
-end
