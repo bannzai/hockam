@@ -12,4 +12,16 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  create_table "minne_goods", id: :bigint, unsigned: true, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", comment: "Good data from https://minne.com/@umio", force: :cascade do |t|
+    t.bigint "item_id"
+    t.string "name", null: false
+    t.string "middle_image_url"
+    t.string "large_image_url"
+    t.integer "price", default: 0, null: false
+    t.integer "quantity_of_stock", default: 0, null: false
+    t.string "quantity_of_stock_unit", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+  end
+
 end
