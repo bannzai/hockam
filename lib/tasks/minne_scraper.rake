@@ -1,23 +1,26 @@
 require 'open-uri'
 require 'nokogiri'
+require 'pry'
 
 namespace :minne_scraper do
   desc 'minne の umioのページから商品画像と情報を取得する'
   task scrape: :environment do
-    puts 'Hello, World'
+    puts 'Begin scrape'
     loop do
       items_document = document_for(items_url)
-      item_ids = pick_minne_item_ids(items_document)
-      break if item_ids.size.zero?
-      item_ids.each { |item_id| 
-        item_document = document_for(item_url(item_id))
-        name = name(item_document)
-        large_image_url = large_image_url(item_document)
-        MinneGoods.upsert(item_id, name, large_image_url)
+      elements = item_elements(items_document)
+      break if elements.size.zero?
+      elements.each { |element|
+        # puts "start item_id: #{item_id}"
+        item_id = pick_minne_item_id(element)
+        middle_image_url = middle_image_url(element)
+        name = name(element)
+        puts "item_id: #{item_id}, name: #{name}, middle_image_url: #{middle_image_url}"
       }
       increment_page_index
     end
     notifiy_items_error if page_index == 1
+    puts 'End scrape'
   end
 
   private
@@ -37,20 +40,22 @@ namespace :minne_scraper do
 
   def document_for(url) 
     charset = 'utf-8'
-    html = read_html(url, charset)
-    Nokogiri::HTML.parse(html, nil, charset)
+    Nokogiri::HTML.parse(open(url), nil, charset)
   end
-  def pick_minne_item_ids(doc)
-    item_detail_page_links(doc).map { |a_tag| a_tag['href'].scan(/[0-9]+/).first.to_i }
+  def item_elements(doc)
+    doc.xpath('//*[@class="galleryProduct"]')
   end
-  def item_detail_page_links(doc)
-    doc.xpath('//*[@id="container"]/div/div/div/div/div/a')
+  def pick_minne_item_id(doc)
+    item_detail_page_link(doc).scan(/[0-9]+/).first.to_i
+  end
+  def item_detail_page_link(doc)
+    doc.search('.galleryProduct__productName a').attribute('href').value
   end
   def name(doc)
-    doc.xpath('//*[@id="item_left"]/h1')[0].children&.to_s
+    doc.search('.galleryProduct__productName a').attribute('data-product-name').value
   end
-  def large_image_url(doc)
-    doc.xpath("//img[@class='items-large-image']")[0].src
+  def middle_image_url(doc)
+    doc.search('.galleryProduct__media div').attribute('data-bg').value.delete_prefix('//')
   end
 
   def notifiy_items_error
