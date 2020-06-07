@@ -11,7 +11,6 @@ namespace :minne_scraper do
       elements = item_elements(items_document)
       break if elements.size.zero?
       elements.each { |element|
-        # puts "start item_id: #{item_id}"
         item_id = pick_minne_item_id(element)
         middle_image_url = middle_image_url(element)
         name = name(element)
