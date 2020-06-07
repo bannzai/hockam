@@ -16,7 +16,7 @@ namespace :minne_scraper do
         middle_image_url = middle_image_url(element)
         name = name(element)
         puts "item_id: #{item_id}, name: #{name}, middle_image_url: #{middle_image_url}"
-        MinneGood.upsert(item_id, name, middle_image_url)
+        MinneGood.upsert(item_id: item_id, name: name, middle_image_url: middle_image_url)
       }
       increment_page_index
     end
