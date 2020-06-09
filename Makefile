@@ -17,6 +17,10 @@ compose:
 db:
 	bundle exec ridgepole -c config/database.yml -E development --apply -f db/Schemafile
 
+.PHONY: setup
+setup:
+	docker-compose run rails bundle exec rake minne_scraper:scrape
+
 .PHONY: up
 up:
 	docker-compose up
