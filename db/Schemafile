@@ -2,9 +2,10 @@
 
 CREATE_TIMESTAMP = 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
 UPDATE_TIMESTAMP = 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
+BIGINT_PRIMARY_KEY = 'bigint unsigned PRIMARY KEY'
 
-create_table "minne_goods", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", comment: "Goods data from https://minne.com/@umio" do |t|
-  t.integer :item_id, limit: 8 
+create_table "minne_goods", id: false, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", comment: "Goods data from https://minne.com/@umio" do |t|
+  t.column :item_id, BIGINT_PRIMARY_KEY
   t.string :name, null: false
   t.string :middle_image_url
   t.column :created_at, CREATE_TIMESTAMP
