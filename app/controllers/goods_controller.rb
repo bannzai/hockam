@@ -1,6 +1,6 @@
 class GoodsController < ApplicationController
   def minne
-    render :minne
+    @minne_goods = MinneGood.all
   end
 
   def suzuri

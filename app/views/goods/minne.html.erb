@@ -1,2 +1,11 @@
 <h1>Goods#minne</h1>
-<p>Find me in app/views/goods/minne.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <% @minne_goods.each_with_index do |minne_good, index| %> 
+    <img src="<%= minne_good.middle_image_url =%>" class="col-sm img-thumbnail img-responsive">
+    <div class="col-sm offset-1">A</div>
+    <div class="col-sm">B</div>
+    <div class="col-sm">C</div>
+  <% end %> 
+  </div>
+</div>
