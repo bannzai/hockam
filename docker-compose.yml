@@ -13,7 +13,7 @@ services:
       - ./db/mysql/volumes:/var/lib/mysql
   rails:
     build: .
-    command: bash -c "bundle exec foreman start -f Procfile.$RAILS_ENV"
+    command: bundle exec foreman start -f Procfile."$RAILS_ENV"
     environment:
       RAILS_ENV: $RAILS_ENV
     volumes:
