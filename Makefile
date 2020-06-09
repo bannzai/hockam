@@ -3,6 +3,7 @@ DOCKER_SERVICE_RAILS?=rails
 .PHONY: clean
 clean:
 	docker-compose rm
+	rm -rf tmp/cache/bootsnap-*
 
 .PHONY: compose
 compose:
@@ -19,7 +20,3 @@ db:
 .PHONY: up
 up:
 	docker-compose up
-
-.PHONY: clean
-clean:
-	rm -rf tmp/cache/bootsnap-*
