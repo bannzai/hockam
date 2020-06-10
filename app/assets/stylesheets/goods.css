@@ -2,3 +2,32 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.square {
+	float: left;
+	position: relative;
+	width: 33%;
+	padding-bottom: 33%; /* = width for a 1: 1 aspect ratio */
+	margin: 0.1%;
+	overflow: hidden;
+}
+.bg{
+	background-size: contain;
+}
+
+.content {
+	position: absolute;
+	height: 100%; 
+	width: 100%; 
+}
+.table{
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+.table-cell{
+	display: table-cell;
+	vertical-align: bottom;
+	height: 100%;
+	width: 100%;
+}
