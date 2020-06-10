@@ -55,7 +55,7 @@ namespace :minne_scraper do
     doc.search('.galleryProduct__productName a').attribute('data-product-name').value
   end
   def middle_image_url(doc)
-    doc.search('.galleryProduct__media div').attribute('data-bg').value.delete_prefix('//')
+    doc.search('.galleryProduct__media div').attribute('data-bg').value
   end
 
   def notifiy_items_error
