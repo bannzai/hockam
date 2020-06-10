@@ -1,6 +1,6 @@
 class GoodsController < ApplicationController
   def minne
-    @minne_goods = MinneGood.all
+    @minne_goods = MinneGood.all[0...50]
   end
 
   def suzuri
