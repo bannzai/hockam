@@ -1,6 +1,6 @@
 class GoodsController < ApplicationController
   def minne
-    @minne_goods = MinneGood.all[0...50]
+    @minne_goods = MinneGood.page(params[:page]).per(15)
   end
 
   def suzuri
