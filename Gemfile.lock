@@ -62,8 +62,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
-    bootstrap-will_paginate (1.0.0)
-      will_paginate
     builder (3.2.4)
     byebug (11.1.1)
     coderay (1.1.2)
@@ -80,6 +78,21 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-bootstrap (3.0.1)
+      kaminari (>= 0.13.0)
+      rails
+    kaminari-core (1.2.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -181,7 +194,6 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
-    will_paginate (3.3.0)
     yard (0.9.24)
     zeitwerk (2.2.2)
 
@@ -191,10 +203,11 @@ PLATFORMS
 DEPENDENCIES
   annotation
   bootsnap (>= 1.4.2)
-  bootstrap-will_paginate
   byebug
   foreman
   jbuilder (~> 2.7)
+  kaminari
+  kaminari-bootstrap
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4)
   pry-byebug
@@ -207,7 +220,6 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
-  will_paginate
 
 RUBY VERSION
    ruby 2.6.6p146
