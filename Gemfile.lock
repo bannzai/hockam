@@ -62,6 +62,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
+    bootstrap-will_paginate (1.0.0)
+      will_paginate
     builder (3.2.4)
     byebug (11.1.1)
     coderay (1.1.2)
@@ -179,6 +181,7 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    will_paginate (3.3.0)
     yard (0.9.24)
     zeitwerk (2.2.2)
 
@@ -188,6 +191,7 @@ PLATFORMS
 DEPENDENCIES
   annotation
   bootsnap (>= 1.4.2)
+  bootstrap-will_paginate
   byebug
   foreman
   jbuilder (~> 2.7)
@@ -203,6 +207,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
+  will_paginate
 
 RUBY VERSION
    ruby 2.6.6p146
