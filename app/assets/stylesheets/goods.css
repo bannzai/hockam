@@ -11,23 +11,25 @@
 	margin: 0.1%;
 	overflow: hidden;
 }
-.bg{
+.bg-image {
+	width: 95%;
+	height: 95%; 
 	background-size: contain;
 }
 
-.content {
+.table {
 	position: absolute;
-	height: 100%; 
-	width: 100%; 
-}
-.table{
 	display: table;
 	height: 100%;
 	width: 100%;
 }
-.table-cell{
+.table-cell {
 	display: table-cell;
 	vertical-align: bottom;
 	height: 100%;
 	width: 100%;
+}
+.goods-name {
+  font-weight: 600;
+  margin-top: 8px;
 }
