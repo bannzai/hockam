@@ -15,9 +15,10 @@ namespace :suzuri_scaper do
 
     links = driver.find_elements(:xpath, '//*[@id="products"]/div/div/a')
     images = driver.find_elements(:xpath, '//*[@id="products"]/div/div/a/div/img')
-    raise 'Unexpected difference count links and images' if links.count != images.count
+    raise 'Unexpected difference count for scraped eleemnts' if links.count != images.count
 
     links.zip(images).each { |link, image| 
+      name = link.attribute('innerText')
       show_url = link['href']
       image_url = image['data-original']
     }
