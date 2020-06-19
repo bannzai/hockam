@@ -11,3 +11,12 @@ create_table "minne_goods", id: false, unsigned: true, force: :cascade, options:
   t.column :created_at, CREATE_TIMESTAMP
   t.column :updated_at, UPDATE_TIMESTAMP
 end
+
+create_table "suzuri_goods", id: false, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", comment: "Goods data from https://suzuri.jp/hockam" do |t|
+  t.column :item_id, BIGINT_PRIMARY_KEY
+  t.string :name, null: false
+  t.string :category, null: false
+  t.string :list_image_url, null: false
+  t.column :created_at, CREATE_TIMESTAMP
+  t.column :updated_at, UPDATE_TIMESTAMP
+end
