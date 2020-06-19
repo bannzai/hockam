@@ -1,15 +1,10 @@
 # vim: syntax=ruby
 
-CREATE_TIMESTAMP = 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
-UPDATE_TIMESTAMP = 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-
 create_table "minne_goods", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", comment: "Goods data from https://minne.com/@umio" do |t|
   t.bigint :item_id, null: false
   t.string :name, null: false
   t.string :middle_image_url
-  t.column :created_at, CREATE_TIMESTAMP
-  t.column :updated_at, UPDATE_TIMESTAMP
-
+  t.timestamps 
 end
 add_index :minne_goods, :item_id, unique: true
 
@@ -18,8 +13,7 @@ create_table "suzuri_goods", unsigned: true, force: :cascade, options: "ENGINE=I
   t.string :name, null: false
   t.string :category, null: false
   t.string :list_image_url, null: false
-  t.column :created_at, CREATE_TIMESTAMP
-  t.column :updated_at, UPDATE_TIMESTAMP
+  t.timestamps 
 end
 
 add_index :suzuri_goods, :item_id, unique: true
