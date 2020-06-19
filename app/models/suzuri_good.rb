@@ -1,0 +1,2 @@
+class SuzuriGood < ApplicationRecord
+end
