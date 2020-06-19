@@ -11,10 +11,10 @@ namespace :minne_scraper do
       break if elements.size.zero?
       elements.each { |element|
         item_id = pick_minne_item_id(element)
-        middle_image_url = middle_image_url(element)
+        list_image_url = list_image_url(element)
         name = name(element)
-        puts "item_id: #{item_id}, name: #{name}, middle_image_url: #{middle_image_url}"
-        MinneGood.upsert(item_id: item_id, name: name, middle_image_url: middle_image_url, unique_by: :item_id)
+        puts "item_id: #{item_id}, name: #{name}, list_image_url: #{list_image_url}"
+        MinneGood.upsert(item_id: item_id, name: name, list_image_url: list_image_url, unique_by: :item_id)
       }
       increment_page_index
     end
@@ -53,7 +53,7 @@ namespace :minne_scraper do
   def name(doc)
     doc.search('.galleryProduct__productName a').attribute('data-product-name').value
   end
-  def middle_image_url(doc)
+  def list_image_url(doc)
     doc.search('.galleryProduct__media div').attribute('data-bg').value
   end
 
