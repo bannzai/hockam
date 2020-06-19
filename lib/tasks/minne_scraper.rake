@@ -1,6 +1,5 @@
 require 'open-uri'
 require 'nokogiri'
-require 'pry'
 
 namespace :minne_scraper do
   desc 'minne の umioのページから商品画像と情報を取得する'
