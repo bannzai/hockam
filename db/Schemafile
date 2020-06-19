@@ -3,7 +3,7 @@
 create_table "minne_goods", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", comment: "Goods data from https://minne.com/@umio" do |t|
   t.bigint :item_id, null: false
   t.string :name, null: false
-  t.string :middle_image_url
+  t.string :list_image_url, null: false
   t.timestamps 
 end
 add_index :minne_goods, :item_id, unique: true
