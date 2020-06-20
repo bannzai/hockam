@@ -1,5 +1,4 @@
 require 'selenium-webdriver'
-require 'pry'
 
 namespace :suzuri_scaper do
   desc 'suzuriのhockamのページからアイコン画像と情報を取得する'
@@ -13,24 +12,25 @@ namespace :suzuri_scaper do
       sleep 5
     }
 
-    categories = driver.find_elements(:xpath, '//*[@id="products"]/div/div/div[2]/div')
+    names = driver.find_elements(:xpath, '//*[@id="products"]/div/div/div/a').map { |e| e.attribute('innerText') }
+    categories = driver.find_elements(:xpath, '//*[@id="products"]/div/div/div[2]/div').map { |e| e.attribute('innerText') }
     links = driver.find_elements(:xpath, '//*[@id="products"]/div/div/a')
     images = driver.find_elements(:xpath, '//*[@id="products"]/div/div/a/div/img')
-    raise 'Unexpected difference count for scraped eleemnts' if links.count != images.count && links.count != categories.count
+    count = links.count
+
+    raise 'Unexpected difference count for scraped eleemnts' if count != images.count && count != categories.count && count != names.count && count != links.count
 
     puts "items count: #{links.count}"
 
-    links.zip(images, categories).each { |link, image, category|
-      name = link.attribute('innerText')
-      category_name = category.attribute('innerText')
+    links.zip(names, categories, images).each { |link, name, category, image|
       show_url = link['href']
       image_url = image['data-original']
       item_id = item_id(show_url)
 
-      puts "item_id: #{item_id}, name: #{name}, list_image_url: #{image_url}, category: #{category_name}"
+      puts "item_id: #{item_id}, name: #{name}, list_image_url: #{image_url}, category: #{category}"
 
       suzuri_good = SuzuriGood.find_or_initialize_by(item_id: item_id)
-      suzuri_good.update_attributes!(name: name, list_image_url: image_url, category: category_name)
+      suzuri_good.update_attributes!(name: name, list_image_url: image_url, category: category)
       suzuri_good.save!
     }
 
