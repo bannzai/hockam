@@ -4,8 +4,8 @@
       <% @minne_goods.each do |a| %> 
         <div class="col-md-4">
           <div class="card mb-4 box-shadow">
-            <div class="card-img-top", style="background-image: url('<%= a.list_image_url =%>');"></div>
-            <!-- <img class="card-img-top" src="<%= a.list_image_url =%>"> -->
+            <!-- <div class="card-img-top", style="background-image: url('<%= a.list_image_url =%>');"></div> -->
+            <img class="card-img-top" src="<%= a.list_image_url =%>">
             <div class="card-body">
               <p class="cart-text"> <%= a.name =%> </p>
             </div>
