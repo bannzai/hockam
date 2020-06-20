@@ -4,7 +4,7 @@ class GoodsController < ApplicationController
   end
 
   def suzuri
-    render :suzuri
+    @suzuri_goods = SuzuriGood.page(params[:page]).per(15)
   end
 
   def stores
