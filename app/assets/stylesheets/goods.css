@@ -3,39 +3,22 @@
   They will automatically be included in application.css.
 */
 
-.square {
-	float: left;
-	position: relative;
-	width: 33%;
-	padding-bottom: 33%; /* = width for a 1: 1 aspect ratio */
-	margin: 0.1%;
-	overflow: hidden;
+.wrapper {
+  position: relative;
+  overflow: hidden;
 }
-.bg-image {
-	width: 95%;
-	height: 95%; 
-	background-size: contain;
+.wrapper:after {
+  content: '';
+  display: block;
+  padding-top: 100%;
 }
 
-.table {
-	position: absolute;
-	display: table;
-	height: 100%;
-	width: 100%;
-}
-.table-cell {
-	display: table-cell;
-	vertical-align: bottom;
-	height: 100%;
-	width: 100%;
-}
-.goods-name {
-  font-weight: 600;
-  margin-top: 8px;
-}
-
-.card-img-top {
-  width: 100%;
-  height: 15vw;
-  object-fit: cover;
+.wrapper img {
+  width: auto;
+  height: 100%;
+  max-width: none;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
 }
