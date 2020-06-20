@@ -1,14 +1,20 @@
-<h1>Goods#minne</h1>
-<% @minne_goods.each do |a| %> 
-  <div class="square">
-    <div class="table">
-      <div class="table-cell">
-        <div class="bg-image", style="background-image: url('<%= a.list_image_url =%>');"></div>
-        <p class="goods-name"> <%= a.name =%> </p>
-      </div>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <% @minne_goods.each do |a| %> 
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <!-- <div class="card-img-top", style="background-image: url('<%= a.list_image_url =%>');"></div> -->
+            <img class="card-img-top" src="<%= a.list_image_url =%>">
+            <div class="card-body">
+              <p class="cart-text"> <%= a.name =%> </p>
+            </div>
+          </div>
+        </div>
+      <% end %> 
+    </div>
+    <div style='clear:left;'> 
+      <%= paginate @minne_goods %>
     </div>
   </div>
-<% end %> 
-<div style='clear:left;'> 
-  <%= paginate @minne_goods %>
 </div>
