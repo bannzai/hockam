@@ -13,17 +13,29 @@ namespace :suzuri_scaper do
       sleep 5
     }
 
+    categories = driver.find_elements(:xpath, '//*[@id="products"]/div/div/div[2]/div')
     links = driver.find_elements(:xpath, '//*[@id="products"]/div/div/a')
     images = driver.find_elements(:xpath, '//*[@id="products"]/div/div/a/div/img')
-    raise 'Unexpected difference count for scraped eleemnts' if links.count != images.count
+    raise 'Unexpected difference count for scraped eleemnts' if links.count != images.count && links.count != categories.count
 
-    links.zip(images).each { |link, image| 
+    puts "items count: #{links.count}"
+
+    links.zip(images, categories).each { |link, image, category|
       name = link.attribute('innerText')
+      category_name = category.attribute('innerText')
       show_url = link['href']
       image_url = image['data-original']
+      item_id = item_id(show_url)
+
+      puts "item_id: #{item_id}, name: #{name}, list_image_url: #{image_url}, category: #{category_name}"
+
+      suzuri_good = SuzuriGood.find_or_initialize_by(item_id: item_id)
+      suzuri_good.update_attributes!(name: name, list_image_url: image_url, category: category_name)
+      suzuri_good.save!
     }
 
     driver.quit
+    puts 'End scrape'
   end
 
   def max
@@ -40,5 +52,9 @@ namespace :suzuri_scaper do
 
   def driver
     @driver ||= Selenium::WebDriver.for(:chrome, options: options)
+  end
+
+  def item_id(url)
+    URI.parse(url).path.delete_prefix('/').split('/')[1]
   end
 end
