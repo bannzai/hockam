@@ -1,2 +1,14 @@
 <h1>Goods#suzuri</h1>
-<p>Find me in app/views/goods/suzuri.html.erb</p>
+<% @suzuri_goods.each do |a| %> 
+  <div class="square">
+    <div class="table">
+      <div class="table-cell">
+        <div class="bg-image", style="background-image: url('<%= a.list_image_url =%>');"></div>
+        <p class="goods-name"> <%= a.name =%> </p>
+      </div>
+    </div>
+  </div>
+<% end %> 
+<div style='clear:left;'> 
+  <%= paginate @suzuri_goods %>
+</div>
