@@ -1,10 +1,12 @@
 class GoodsController < ApplicationController
   def minne
-    @minne_goods = MinneGood.order('item_id DESC').page(params[:page]).per(15)
+    @goods = MinneGood.order('item_id DESC').page(params[:page]).per(15)
+    render template: 'goods/goods'
   end
 
   def suzuri
-    @suzuri_goods = SuzuriGood.order('item_id DESC').page(params[:page]).per(15)
+    @goods = SuzuriGood.order('item_id DESC').page(params[:page]).per(15)
+    render template: 'goods/goods'
   end
 
   def stores
