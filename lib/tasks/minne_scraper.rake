@@ -13,9 +13,10 @@ namespace :minne_scraper do
         item_id = pick_minne_item_id(element)
         list_image_url = list_image_url(element)
         name = name(element)
-        puts "item_id: #{item_id}, name: #{name}, list_image_url: #{list_image_url}"
+        external_link = item_url(item_id)
+        puts "item_id: #{item_id}, name: #{name}, list_image_url: #{list_image_url}, external_link: #{external_link}"
         minne_good = MinneGood.find_or_initialize_by(item_id: item_id)
-        minne_good.update_attributes!(name: name, list_image_url: list_image_url)
+        minne_good.update_attributes!(name: name, list_image_url: list_image_url, external_link: external_link)
         minne_good.save!
       }
       increment_page_index
