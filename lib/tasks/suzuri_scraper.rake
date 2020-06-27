@@ -23,7 +23,7 @@ namespace :suzuri_scaper do
 
     puts "items count: #{links.count}"
 
-    links.zip(names, categories, images).each { |link, name, category, image|
+    links.zip(names, categories, images, external_links).each { |link, name, category, image, external_link|
       show_url = link['href']
       image_url = image['data-original']
       item_id = item_id(show_url)
