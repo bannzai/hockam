@@ -1,6 +1,6 @@
 require 'selenium-webdriver'
 
-namespace :suzuri_scaper do
+namespace :suzuri_scraper do
   desc 'suzuriのhockamのページからアイコン画像と情報を取得する'
   task scrape: :environment do
     puts 'Begin scrape'
