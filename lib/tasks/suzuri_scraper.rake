@@ -16,9 +16,10 @@ namespace :suzuri_scaper do
     categories = driver.find_elements(:xpath, '//*[@id="products"]/div/div/div[2]/div').map { |e| e.attribute('innerText') }
     links = driver.find_elements(:xpath, '//*[@id="products"]/div/div/a')
     images = driver.find_elements(:xpath, '//*[@id="products"]/div/div/a/div/img')
+    external_links = driver.find_elements(:xpath, '//*[@id="products"]/div/div/a').map { |e| e.attribute('href') }
     count = links.count
 
-    raise 'Unexpected difference count for scraped eleemnts' if count != images.count && count != categories.count && count != names.count && count != links.count
+    raise 'Unexpected difference count for scraped eleemnts' if count != images.count && count != categories.count && count != names.count && count != links.count && count != external_links.count
 
     puts "items count: #{links.count}"
 
@@ -27,10 +28,10 @@ namespace :suzuri_scaper do
       image_url = image['data-original']
       item_id = item_id(show_url)
 
-      puts "item_id: #{item_id}, name: #{name}, list_image_url: #{image_url}, category: #{category}"
+      puts "item_id: #{item_id}, name: #{name}, list_image_url: #{image_url}, category: #{category}, external_link: #{external_link}"
 
       suzuri_good = SuzuriGood.find_or_initialize_by(item_id: item_id)
-      suzuri_good.update_attributes!(name: name, list_image_url: image_url, category: category)
+      suzuri_good.update_attributes!(name: name, list_image_url: image_url, category: category, external_link: external_link)
       suzuri_good.save!
     }
 
