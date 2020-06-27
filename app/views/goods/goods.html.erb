@@ -1,17 +1,17 @@
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row">
-      <% @goods.each do |a| %> 
+      <% @goods.each do |good| %> 
         <div class="col-md-4">
           <div class="card mb-4 box-shadow">
             <div class="wrapper">
-              <img class="card-img-top img-fluid" src="<%= a.list_image_url =%>">
+              <img class="card-img-top img-fluid" src="<%= good.list_image_url =%>">
             </div>
             <div class="card-body">
-              <p class="cart-text"> <%= a.name =%> </p>
+              <p class="cart-text"> <%= good.name =%> </p>
             </div>
           </div>
-          <a href="<%= a.external_link =%>" />
+          <good href="<%= good.external_link =%>" />
         </div>
       <% end %> 
     </div>
