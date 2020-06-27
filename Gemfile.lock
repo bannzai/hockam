@@ -64,10 +64,12 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.1)
+    childprocess (3.0.0)
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
     debug_inspector (0.0.3)
+    diffy (3.3.0)
     erubi (1.9.0)
     ffi (1.12.2)
     foreman (0.87.0)
@@ -77,6 +79,21 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-bootstrap (3.0.1)
+      kaminari (>= 0.13.0)
+      rails
+    kaminari-core (1.2.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -147,7 +164,14 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    ridgepole (0.8.7)
+      activerecord (>= 5.0.1, < 6.1)
+      diffy
     ruby_dep (1.5.0)
+    rubyzip (2.3.0)
+    selenium-webdriver (3.142.7)
+      childprocess (>= 0.5, < 4.0)
+      rubyzip (>= 1.2.2)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -187,6 +211,8 @@ DEPENDENCIES
   byebug
   foreman
   jbuilder (~> 2.7)
+  kaminari
+  kaminari-bootstrap
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4)
   pry-byebug
@@ -194,13 +220,15 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   rails (~> 6.0.2, >= 6.0.2.1)
+  ridgepole
+  selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.6.6p146
 
 BUNDLED WITH
    2.1.4

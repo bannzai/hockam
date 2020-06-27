@@ -1,4 +1,11 @@
-FROM ruby:2.6.5-alpine
+FROM ruby:2.6.6-alpine
+
+# Prepare installs latest Chromium package.
+# Reference: https://github.com/Zenika/alpine-chrome/blob/master/Dockerfile#L17
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories \
+    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
+    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+    && echo "http://dl-cdn.alpinelinux.org/alpine/v3.11/main" >> /etc/apk/repositories 
 
 RUN apk update && \
 		apk add --no-cache \
@@ -20,7 +27,13 @@ RUN apk update && \
 			bash \
 			build-base \
 			yarn \
-			zlib-dev 
+			zlib-dev \
+      udev \
+      ttf-freefont \
+      dpkg \
+      chromium-chromedriver \
+      chromium \
+      su-exec
 
 ENV TZ=Asia/Tokyo
 
