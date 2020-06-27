@@ -4,6 +4,7 @@ create_table "minne_goods", unsigned: true, force: :cascade, options: "ENGINE=In
   t.bigint :item_id, null: false
   t.string :name, null: false
   t.string :list_image_url, null: false
+  t.string :external_link, null: false
   t.timestamps 
 end
 add_index :minne_goods, :item_id, unique: true
@@ -13,6 +14,7 @@ create_table "suzuri_goods", unsigned: true, force: :cascade, options: "ENGINE=I
   t.string :name, null: false
   t.string :category, null: false
   t.string :list_image_url, null: false
+  t.string :external_link, null: false
   t.timestamps 
 end
 
