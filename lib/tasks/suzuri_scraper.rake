@@ -47,7 +47,7 @@ namespace :suzuri_scaper do
   end
 
   def options
-     Selenium::WebDriver::Chrome::Options.new(args: ['headless'])
+     Selenium::WebDriver::Chrome::Options.new(args: ['headless', 'no-sandbox'])
   end
 
   def driver
