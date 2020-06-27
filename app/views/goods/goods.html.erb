@@ -3,15 +3,16 @@
     <div class="row">
       <% @goods.each do |good| %> 
         <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <div class="wrapper">
-              <img class="card-img-top img-fluid" src="<%= good.list_image_url =%>">
+          <a href="<%= good.external_link =%>" >
+            <div class="card mb-4 box-shadow">
+              <div class="wrapper">
+                <img class="card-img-top img-fluid" src="<%= good.list_image_url =%>">
+              </div>
+              <div class="card-body">
+                <p class="cart-text"> <%= good.external_link =%> </p>
+              </div>
             </div>
-            <div class="card-body">
-              <p class="cart-text"> <%= good.name =%> </p>
-            </div>
-          </div>
-          <a href="<%= good.external_link =%>" />
+          </a>
         </div>
       <% end %> 
     </div>
