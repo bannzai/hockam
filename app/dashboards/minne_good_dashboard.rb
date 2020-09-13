@@ -13,6 +13,7 @@ class MinneGoodDashboard < Administrate::BaseDashboard
     name: Field::String,
     list_image_url: Field::String,
     external_link: Field::String,
+    is_hidden: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -27,6 +28,7 @@ class MinneGoodDashboard < Administrate::BaseDashboard
   item_id
   name
   list_image_url
+  is_hidden
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,6 +39,7 @@ class MinneGoodDashboard < Administrate::BaseDashboard
   name
   list_image_url
   external_link
+  is_hidden
   created_at
   updated_at
   ].freeze
@@ -49,6 +52,7 @@ class MinneGoodDashboard < Administrate::BaseDashboard
   name
   list_image_url
   external_link
+  is_hidden
   ].freeze
 
   # COLLECTION_FILTERS
