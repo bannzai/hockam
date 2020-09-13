@@ -24,3 +24,6 @@ setup:
 .PHONY: up
 up:
 	docker-compose up
+
+.PHONY: security-update
+	ncu -u
