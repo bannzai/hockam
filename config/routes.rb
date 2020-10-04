@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'news/index'
+  get 'news', to: 'news#index'
   get 'news/show'
   namespace :admin do
     resources :suzuri_goods
