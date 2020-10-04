@@ -69,6 +69,9 @@ GEM
       momentjs-rails (~> 2.8)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
+    administrate-field-carrierwave (0.5.0)
+      administrate (< 1.0.0)
+      rails (>= 4.2, < 7)
     annotation (0.1.2)
     autoprefixer-rails (9.8.4)
       execjs
@@ -255,6 +258,7 @@ PLATFORMS
 
 DEPENDENCIES
   administrate
+  administrate-field-carrierwave
   annotation
   bootsnap (>= 1.4.2)
   byebug
