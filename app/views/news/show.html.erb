@@ -14,8 +14,8 @@
         <p>Posted on <%= @news.updated_at.to_date.to_s %></p>
         </p>
 
-        <!-- Preview Image -->
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+        <!-- Recommended width: 900, height: 300 -->
+        <img class="img-fluid rounded" src="<%= @news.header_image_url %>" alt="">
 
         <hr>
 
