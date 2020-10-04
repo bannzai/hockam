@@ -18,6 +18,7 @@ class NewsDashboard < Administrate::BaseDashboard
     remote_url: false
     ),
     is_hidden: Field::Boolean,
+    priority: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -32,6 +33,7 @@ class NewsDashboard < Administrate::BaseDashboard
   title
   description
   header_image
+  priority
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -42,6 +44,7 @@ class NewsDashboard < Administrate::BaseDashboard
   description
   header_image
   is_hidden
+  priority
   created_at
   updated_at
   ].freeze
@@ -54,6 +57,7 @@ class NewsDashboard < Administrate::BaseDashboard
   description
   header_image
   is_hidden
+  priority
   ].freeze
 
   # COLLECTION_FILTERS
