@@ -1,37 +1,17 @@
-  <!-- Page Content -->
-  <div class="container">
-
-    <div class="row">
-
-      <!-- Post Content Column -->
-      <div class="col-lg-8">
-
-        <!-- Title -->
-        <h1 class="mt-4"><%= @news.title %></h1>
-
-        <!-- Author -->
-        <p class="lead">
-        <p>Posted on <%= @news.updated_at.to_date.to_s %></p>
-        </p>
-
-        <!-- Recommended width: 900, height: 300 -->
-        <img class="img-fluid rounded" src="<%= @news.header_image_url %>" alt="">
-
-        <hr>
-
-        <p>
-        <%= @news.displaying_description %>
-        </p>
-        <hr>
-      </div>
-
-      <!-- Sidebar Widgets Column -->
-      <div class="col-md-4">
-        <a class="twitter-timeline" data-height="600" href="https://twitter.com/hockamneco?ref_src=twsrc%5Etfw">Tweets by hockamneco</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
-
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="mt-4"><%= @news.title %></h1>
+      <p class="lead">
+      <p>Posted on <%= @news.updated_at.to_date.to_s %></p>
+      </p>
+      <img class="img-fluid rounded" src="<%= @news.header_image_url %>" alt="">
+      <hr>
+      <p><%= @news.displaying_description %></p>
+      <hr>
     </div>
-    <!-- /.row -->
-
+    <div class="col-md-4">
+      <a class="twitter-timeline" data-height="600" href="https://twitter.com/hockamneco?ref_src=twsrc%5Etfw">Tweets by hockamneco</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
   </div>
-  <!-- /.container -->
+</div>
