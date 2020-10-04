@@ -11,7 +11,12 @@ class NewsDashboard < Administrate::BaseDashboard
     id: Field::Number,
     title: Field::String,
     description: Field::String,
-    header_image: Field::String,
+    header_image: Field::Carrierwave.with_options(
+    image: :standard,
+    multiple: false,
+    remove: false,
+    remote_url: false
+    ),
     is_hidden: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
