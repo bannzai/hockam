@@ -4,5 +4,6 @@ class NewsController < ApplicationController
   end
 
   def show
+    @news = News.find_by(id: params[:id], is_hidden: false)
   end
 end
