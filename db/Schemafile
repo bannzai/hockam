@@ -25,7 +25,7 @@ add_index :suzuri_goods, :item_id, unique: true
 create_table "news", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", comment: "Goods data from https://suzuri.jp/hockam" do |t|
   t.string :title, null: false
   t.string :description, null: false
-  t.string :image_url, null: true
+  t.string :header_image, null: true
   t.boolean :is_hidden, default: false, null: false
   t.timestamps 
 end
