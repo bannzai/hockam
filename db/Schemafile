@@ -21,3 +21,12 @@ create_table "suzuri_goods", unsigned: true, force: :cascade, options: "ENGINE=I
 end
 
 add_index :suzuri_goods, :item_id, unique: true
+
+create_table "news", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", comment: "Goods data from https://suzuri.jp/hockam" do |t|
+  t.string :title, null: false
+  t.text :description, null: false
+  t.string :header_image, null: true
+  t.boolean :is_hidden, default: false, null: false
+  t.integer :priority, default: 0, null: false
+  t.timestamps 
+end
