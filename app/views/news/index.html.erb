@@ -2,15 +2,17 @@
   <div class="container">
     <div class="row">
       <% @news_list.each do |news| %>
-        <div class="card" style="width: 18rem;">
-          <div class="wrapper">
-            <img class="card-img-top img-fluid" src="<%= news.header_image_url =%>">
+        <a href="/news/<%= news.id =%>" >
+          <div class="card" style="width: 18rem;">
+            <div class="wrapper">
+              <img class="card-img-top img-fluid" src="<%= news.header_image_url =%>">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><%= news.title %></h5>
+              <p class="card-text"><%= strip_tags(news.displaying_description)[0, 100] %></p>
+            </div>
           </div>
-          <div class="card-body">
-            <h5 class="card-title"><%= news.title %></h5>
-            <p class="card-text"><%= strip_tags(news.displaying_description)[0, 100] %></p>
-          </div>
-        </div>
+        </a>
       <% end %>
     </div>
     <div style='clear:left;'> 
