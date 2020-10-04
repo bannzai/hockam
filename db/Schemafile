@@ -27,5 +27,6 @@ create_table "news", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DE
   t.text :description, null: false
   t.string :header_image, null: true
   t.boolean :is_hidden, default: false, null: false
+  t.integer :priority, default: 0, null: false
   t.timestamps 
 end
