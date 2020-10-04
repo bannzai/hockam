@@ -19,7 +19,9 @@
 
         <hr>
 
-        <p><%= @news.description %></p>
+        <p>
+        <%= simple_format(@news.description) %>
+        </p>
         <hr>
       </div>
 
