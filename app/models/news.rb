@@ -7,7 +7,7 @@ class News < ApplicationRecord
     autolink: true,
   }.freeze
 
-  def displaing_descripton
+  def displaying_description
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, REDCARPET_CONFIG)
     markdown.render(description).html_safe
   end

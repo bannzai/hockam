@@ -8,7 +8,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title"><%= news.title %></h5>
-            <p class="card-text"><%= news.description[0, 100] %></p>
+            <p class="card-text"><%= strip_tags(news.displaying_description)[0, 100] %></p>
           </div>
         </div>
       <% end %>
