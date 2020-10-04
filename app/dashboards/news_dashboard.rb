@@ -10,7 +10,7 @@ class NewsDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     title: Field::String,
-    description: Field::String,
+    description: Field::Text,
     header_image: Field::Carrierwave.with_options(
     image: :standard,
     multiple: false,
