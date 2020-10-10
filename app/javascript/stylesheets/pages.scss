@@ -1,69 +1,40 @@
-/* 
-FIXME: number of 2 and 3 carousels are not appear. margin-right: 0px well work
-https://codepen.io/cy2/pen/MWYaRQj 
-*/
-.carousel-inner * {
-	margin-right: 0px;
+@media (max-width: 769px) {
+  .carousel-inner .carousel-item > div {
+    display: none;
+  }
+  .carousel-inner .carousel-item > div:first-child {
+    display: block;
+  }
 }
+
+.carousel-inner > .carousel-item {
+	min-height : 300px;
+	max-height : 300px;
+	width : 100%;
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* display 3 */
 @media (min-width: 768px) {
-	/* show 3 items */
-	.carousel-inner .active,
-	.carousel-inner .active + .carousel-item,
-	.carousel-inner .active + .carousel-item + .carousel-item {
-		display: block;
-	}
+  .carousel-inner .carousel-item-right.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(33.333%);
+  }
 
-	.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-	.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
-	.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
-		transition: none;
-	}
-
-	.carousel-inner .carousel-item-next,
-	.carousel-inner .carousel-item-prev {
-		position: relative;
-		transform: translate3d(0, 0, 0);
-	}
-
-	.carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
-		position: absolute;
-		top: 0;
-		right: -33.3333%;
-		z-index: -1;
-		display: block;
-		visibility: visible;
-	}
-
-	/* left or forward direction */
-	.active.carousel-item-left + .carousel-item-next.carousel-item-left,
-	.carousel-item-next.carousel-item-left + .carousel-item,
-	.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
-	.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
-		position: relative;
-		transform: translate3d(-100%, 0, 0);
-		visibility: visible;
-	}
-
-	/* farthest right hidden item must be abso position for animations */
-	.carousel-inner .carousel-item-prev.carousel-item-right {
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-		display: block;
-		visibility: visible;
-	}
-
-	/* right or prev direction */
-	.active.carousel-item-right + .carousel-item-prev.carousel-item-right,
-	.carousel-item-prev.carousel-item-right + .carousel-item,
-	.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
-	.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
-		position: relative;
-		transform: translate3d(100%, 0, 0);
-		visibility: visible;
-		display: block;
-		visibility: visible;
-	}
+  .carousel-inner .carousel-item-left.active, 
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-33.333%);
+  }
 }
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{ 
+  transform: translateX(0);
+}
+
 
