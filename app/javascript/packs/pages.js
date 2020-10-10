@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$('#carousel-slider').carousel({
-		interval: 2000
+		interval: 1800
 	})
 	$('.carousel .carousel-item').each(function(){
 		var minPerSlide = 3;
