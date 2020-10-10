@@ -1,10 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
-@import '../../assets/stylesheets/goods.css';
+@import './goods';
 
 .drop-down-logo {
   width: 20px;
   height: 20px;
 }
+
 
 a {
   color: inherit;
