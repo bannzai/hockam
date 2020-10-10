@@ -20,3 +20,7 @@ $('.carousel .carousel-item').each(function(){
 	}
 });
 
+
+$(function() {
+    console.log("OK");
+});
