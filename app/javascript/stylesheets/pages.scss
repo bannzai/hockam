@@ -1,3 +1,10 @@
+/* 
+FIXME: number of 2 and 3 carousels are not appear. margin-right: 0px well work
+https://codepen.io/cy2/pen/MWYaRQj 
+*/
+.carousel-inner * {
+	margin-right: 0px;
+}
 @media (min-width: 768px) {
 	/* show 3 items */
 	.carousel-inner .active,
