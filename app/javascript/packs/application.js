@@ -9,6 +9,7 @@ require("jquery");
 require("bootstrap");
 
 import '../stylesheets/application.scss';
+import './home.js'
 const images = require.context('../images/', true)
 
 

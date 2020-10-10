@@ -1,4 +1,4 @@
-$('#recipeCarousel').carousel({
+$('#carousel-slider').carousel({
 	interval: 10000
 })
 
