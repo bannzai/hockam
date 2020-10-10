@@ -1,5 +1,11 @@
+import $ from 'jquery';
+
 $(document).ready(function() {
+	$('#myCarousel').carousel({
+		interval: 2000
+	});
 	$("#myCarousel").on("slide.bs.carousel", function(e) {
+
 		var $e = $(e.relatedTarget);
 		var idx = $e.index();
 		var itemsPerSlide = 3;
@@ -22,8 +28,6 @@ $(document).ready(function() {
 		}
 	});
 });
-
-
 
 $(function() {
 	console.log("OK");
