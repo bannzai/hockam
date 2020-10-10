@@ -7,7 +7,6 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("jquery");
 require("bootstrap");
-require('bootstrap/dist/js/bootstrap.min.js')
 
 import '../stylesheets/application.scss';
 import './pages.js'
