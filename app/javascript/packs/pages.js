@@ -1,7 +1,3 @@
-$('#carousel-slider').carousel({
-	interval: 10000
-})
-
 $('.carousel .carousel-item').each(function(){
 	var minPerSlide = 3;
 	var next = $(this).next();
