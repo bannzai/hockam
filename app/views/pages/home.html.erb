@@ -2,48 +2,26 @@
 	<div class="row mx-auto my-auto">
 		<div id="carousel-slider" class="carousel slide w-100 h-auto" data-ride="carousel">
 			<div class="carousel-inner w-100 h-auto" role="listbox">
+      <% @minne_goods.each_with_index do |good, index| %> 
+<% if index == 0 then %>
 				<div class="carousel-item active">
-					<div class="col-md-4">
-						<div class="card card-body">
-							<img class="img-fluid" src="http://placehold.it/380?text=1">
-						</div>
-					</div>
-				</div>
+<% else %>
 				<div class="carousel-item">
+<% end %>
 					<div class="col-md-4">
-						<div class="card card-body">
-							<img class="img-fluid" src="http://placehold.it/380?text=2">
-						</div>
+						<a href="<%= good.external_link =%>" >
+							<div class="card mb-4 box-shadow">
+								<div class="wrapper">
+									<img class="card-img-top img-fluid" src="<%= good.list_image_url =%>">
+								</div>
+								<div class="card-body">
+									<p class="cart-text"> <%= good.name =%> </p>
+								</div>
+							</div>
+						</a>
 					</div>
-				</div>
-				<div class="carousel-item">
-					<div class="col-md-4">
-						<div class="card card-body">
-							<img class="img-fluid" src="http://placehold.it/380?text=3">
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<div class="col-md-4">
-						<div class="card card-body">
-							<img class="img-fluid" src="http://placehold.it/380?text=4">
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<div class="col-md-4">
-						<div class="card card-body">
-							<img class="img-fluid" src="http://placehold.it/380?text=5">
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<div class="col-md-4">
-						<div class="card card-body">
-							<img class="img-fluid" src="http://placehold.it/380?text=6">
-						</div>
-					</div>
-				</div>
+        </div>
+      <% end %> 
 			</div>
 			<a class="carousel-control-prev w-auto" href="#carousel-slider" role="button" data-slide="prev">
 				<span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
