@@ -1,12 +1,12 @@
 <div class="container">
   <div class="card-deck">
     <% @news_list.each_slice(4) do |first, second, third, fourth| %>
-      <div class="row d-flex flex-row justify-content-around w-100">
+      <div class="row w-100">
         <% if first.present? %><%= render partial: 'news_card', locals: { news: first } %> <% end %>
         <% if second.present? %><%= render partial: 'news_card', locals: { news: second } %> <% end %>
         <% if third.present? %><%= render partial: 'news_card', locals: { news: third } %> <% end %>
         <% if fourth.present? %><%= render partial: 'news_card', locals: { news: fourth } %> <% end %>
-      <% end %>
       </div>
+      <% end %>
   </div>
 </div>
