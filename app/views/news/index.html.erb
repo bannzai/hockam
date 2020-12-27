@@ -3,7 +3,7 @@
     <div class="row">
       <% @news_list.each do |news| %>
         <a href="/news/<%= news.id =%>" >
-          <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 18rem; margin: 10px;">
             <div class="wrapper">
               <img class="card-img-top img-fluid" src="<%= news.header_image_url =%>">
             </div>
