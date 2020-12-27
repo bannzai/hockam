@@ -1,36 +1,17 @@
-<div class="container text-center my-3">
-	<div class="row mx-auto my-auto">
-		<div id="carousel-slider" class="carousel slide w-100 h-auto" data-ride="carousel">
-			<div class="carousel-inner w-100 h-auto" role="listbox">
-      <% @goods.each_with_index do |good, index| %> 
-<% if index == 0 then %>
-				<div class="carousel-item active">
-<% else %>
-				<div class="carousel-item">
-<% end %>
-					<div class="col-md-4">
-						<a href="<%= good.external_link =%>" >
-							<div class="card mb-4 box-shadow">
-								<div class="wrapper">
-									<img class="card-img-top img-fluid" src="<%= good.list_image_url =%>">
-								</div>
-								<div class="card-body">
-									<p class="cart-text"> <%= good.name =%> </p>
-								</div>
-							</div>
-						</a>
-					</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <% @news_list.each do |news| %>
+      <a href="/news/<%= news.id =%>" >
+        <div class="card" style="width: 18rem; margin: 10px;">
+          <div class="wrapper">
+            <img class="card-img-top img-fluid" src="<%= news.header_image_url =%>">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= news.title %></h5>
+            <p class="card-text"><%= strip_tags(news.displaying_description)[0, 100] %></p>
+          </div>
         </div>
-      <% end %> 
-			</div>
-			<a class="carousel-control-prev w-auto" href="#carousel-slider" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next w-auto" href="#carousel-slider" role="button" data-slide="next">
-				<span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	</div>
+      </a>
+    <% end %>
+  </div>
 </div>
