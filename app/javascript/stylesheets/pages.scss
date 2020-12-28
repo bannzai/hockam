@@ -18,6 +18,13 @@
   display: flex;
 }
 
+.carousel-inner .carousel-item {
+  z-index: 10;
+}
+
+.carousel-inner .carousel-item.active {
+  z-index: 1;
+}
 /* display 3 */
 @media (min-width: 768px) {
   .carousel-inner .carousel-item-right.active,
