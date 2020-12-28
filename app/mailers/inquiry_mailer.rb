@@ -1,0 +1,2 @@
+class InquiryMailer < ApplicationMailer
+end
