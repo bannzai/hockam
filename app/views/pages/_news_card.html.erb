@@ -1,0 +1,13 @@
+<div class="col-md-3 d-flex align-items-stretch">
+  <div class="card w-100" style="margin-top: 10px;">
+    <a href="/news/<%= news.id =%>" >
+      <div class="wrapper">
+        <img class="card-img-top img-fluid" src="<%= news.header_image_url =%>">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= news.title %></h5>
+        <p class="card-text"><%= strip_tags(news.displaying_description)[0, 30] %></p>
+      </div>
+    </a>
+  </div>
+</div>
