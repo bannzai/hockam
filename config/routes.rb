@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'news', to: 'news#index'
   get 'news/:id', to: 'news#show'
+  get 'inquiry', to: 'inquiry#form'
   namespace :admin do
     resources :suzuri_goods
     resources :minne_goods
