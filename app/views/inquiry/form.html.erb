@@ -1,0 +1,58 @@
+<div class="container">
+  <h2>お問い合わせ</h2>
+  <p>メールでのお問い合わせは下記のフォームからお願いします</p>
+
+  <% if @inquiry.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>入力内容にエラーがあります</strong>
+      <ul>
+        <% @inquiry.errors.each do |attr, msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-12">
+    <p>
+    お仕事のご依頼やご相談などお気軽にお問い合わせください。<br/>
+    お問い合わせフォームに必要事項を記入の上お送りください。<br/>
+    お客様のメール設定によってお返事が送信できないことがございます。<br/>
+    </p>
+  </div>
+  <%= form_for @inquiry, class: 'shake', url: inquiry_confirm_path do |f| %>
+    <div class="row mx-auto">
+      <div class="col-sm-2">
+        <p><strong>お名前</strong></p>
+      </div>
+      <div class="col-sm-8">
+        <%= f.text_field :sender_name, size: "70" %>
+      </div>
+    </div>
+    <div class="row mx-auto">
+      <div class="col-sm-2">
+        <p><strong>お名前（ふりがな）</strong></p>
+      </div>
+      <div class="col-sm-8">
+        <%= f.text_field :sender_name_reading, size: "70" %>
+      </div>
+    </div>
+    <div class="row mx-auto">
+      <div class="col-sm-2">
+        <p><strong>返信先のメールアドレス</strong></p>
+      </div>
+      <div class="col-sm-8">
+        <%= f.text_field :sender_mail_address, size: "70" %>
+      </div>
+    </div>
+    <div class="row mx-auto">
+      <div class="col-sm-2">
+        <p><strong>お問い合わせ内容</strong></p>
+      </div>
+      <div class="col-sm-8">
+        <%= f.text_area :message , rows: "20", cols: "100"%>
+      </div>
+    </div>
+    <%= f.submit "入力内容を確認", class: "form-submit" , id: "inquiry_confirm"%>
+  <% end %>
+</div>
