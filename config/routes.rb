@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'news', to: 'news#index'
   get 'news/:id', to: 'news#show'
   get 'inquiry', to: 'inquiry#form'
-  get 'inquiry/confirm', to: 'inquiry#confirm'
+  post 'inquiry/confirm', to: 'inquiry#confirm'
   namespace :admin do
     resources :suzuri_goods
     resources :minne_goods
