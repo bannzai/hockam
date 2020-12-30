@@ -1,6 +1,10 @@
 class InquiryMailer < ApplicationMailer
   def send_mail(inquiry)
-    @inquiry = inquiry
-    mail(to: ENV["INQUIRY_MAIL_ADDRESS"], subject: @inquiry.message)
+    begin
+      @inquiry = inquiry
+      mail(to: ENV['INQUIRY_TO_MAIL_ADDRESS'], subject: 'hockam.comからお問い合わせがありました')
+    rescue StandardError => e
+      Rails.logger.error("failed send mail. #{e.message}")
+    end
   end
 end
