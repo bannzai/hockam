@@ -13,6 +13,14 @@ class InquiryController < ApplicationController
     end
   end
 
+  def thanks
+    @inquiry = Inquiry.new(inquiry_params)
+    InquiryMailer.send_mail(@inquiry).deliver_now
+    @inquiry.save!
+
+    render :action => 'thanks'
+  end
+
   private
   def inquiry_params
     params.require(:inquiry).permit(:sender_name, :sender_name_reading ,:sender_mail_address, :message)
