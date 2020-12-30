@@ -1,2 +1,44 @@
+<div class="container">
+  <h2>お問い合わせ内容確認</h2>
+  <p style="color:black;"><strong>このお問い合わせ内容でよろしいですか？<strong></p>
 
-confirm
+  <%= form_for @inquiry, class: 'shake', url: inquiry_thanks_path do |f| %>
+    <div class="row mx-auto">
+      <div class="col-sm-2">
+        <p><strong>お名前</strong></p>
+      </div>
+      <div class="col-sm-8">
+        <%= f.hidden_field :sender_name %>
+        <%= f.text_field :sender_name, size: "70", readonly: true %>
+      </div>
+    </div>
+    <div class="row mx-auto">
+      <div class="col-sm-2">
+        <p><strong>お名前（ふりがな）</strong></p>
+      </div>
+      <div class="col-sm-8">
+        <%= f.hidden_field :sender_name_reading %>
+        <%= f.text_field :sender_name_reading, size: "70", readonly: true %>
+      </div>
+    </div>
+    <div class="row mx-auto">
+      <div class="col-sm-2">
+        <p><strong>返信先のメールアドレス</strong></p>
+      </div>
+      <div class="col-sm-8">
+        <%= f.hidden_field :sender_mail_address %>
+        <%= f.text_field :sender_mail_address, size: "70", readonly: true %>
+      </div>
+    </div>
+    <div class="row mx-auto">
+      <div class="col-sm-2">
+        <p><strong>お問い合わせ内容</strong></p>
+      </div>
+      <div class="col-sm-8">
+        <%= f.hidden_field :message %>
+        <%= f.text_field :message , rows: "20", cols: "100", readonly: true %>
+      </div>
+    </div>
+    <%= f.submit "送信", class: "form-submit" , id: "inquiry_post"%>
+  <% end %>
+</div>
