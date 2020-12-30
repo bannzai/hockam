@@ -1,6 +1,5 @@
 class Inquiry < ApplicationRecord
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	attr_accessor :sender_name, :sender_name_reading, :sender_mail_address, :message
 
 	validates :sender_name, presence: { message: 'お名前を入力してください' }
   validates :sender_name_reading, presence: { message: 'お名前(ふりがな)を入力してください' }
