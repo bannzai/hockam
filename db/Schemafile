@@ -30,3 +30,11 @@ create_table "news", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DE
   t.integer :priority, default: 0, null: false
   t.timestamps 
 end
+
+create_table "inquiries", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", comment: "Goods data from https://suzuri.jp/hockam" do |t|
+  t.string :sender_name, null: false
+  t.string :sender_name_reading, null: false
+  t.string :sender_mail_address, null: false
+  t.text :message, null: false
+  t.timestamps
+end
