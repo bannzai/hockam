@@ -1,22 +1,13 @@
-<div class="album py-5 bg-light">
-  <div class="container">
-    <div class="row">
-      <% @news_list.each do |news| %>
-        <a href="/news/<%= news.id =%>" >
-          <div class="card" style="width: 18rem; margin: 10px;">
-            <div class="wrapper">
-              <img class="card-img-top img-fluid" src="<%= news.header_image_url =%>">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><%= news.title %></h5>
-              <p class="card-text"><%= strip_tags(news.displaying_description)[0, 100] %></p>
-            </div>
-          </div>
-        </a>
-      <% end %>
-    </div>
-    <div style='clear:left;'> 
+<div class="container" >
+  <%= render partial: 'news/news', locals: { news_list: @news_list } %>
+  <div class="row" >
+    <div class="col-md-8 mx-auto my-auto">
       <%= paginate @news_list %>
+    </div>
+  </div>
+  <div class="row w-100 p-1 mx-auto">
+    <div class="col-md-12">
+      <a class="twitter-timeline" data-height="600" href="https://twitter.com/hockamneco?ref_src=twsrc%5Etfw">Tweets by hockamneco</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
   </div>
 </div>
