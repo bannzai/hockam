@@ -31,8 +31,13 @@
               <li><a class="nav-link" href=<%= goods_stores_path %>><img src=<%= asset_pack_path 'media/images/annonymouse_cart.png' %> class="drop-down-logo" > Stores</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">SNS</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#">SNS</a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a class="nav-link" target="_blank" href="https://twitter.com/hockamneco"><img src=<%= asset_pack_path 'media/images/twitter_icon.svg' %> class="drop-down-logo" > Twitter</a></li>
+              <li><a class="nav-link" target="_blank" href=https://www.facebook.com/miu.oda.3><img src=<%= asset_pack_path 'media/images/facebook_icon.png' %> class="drop-down-logo" > Facebook</a></li>
+              <li><a class="nav-link" target="_blank" href=https://note.com/hockam><img src=<%= asset_pack_path 'media/images/note_icon.svg' %> class="drop-down-logo"> note</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/inquiry">Contact</a>
