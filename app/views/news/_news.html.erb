@@ -1,5 +1,5 @@
 <% news_list.each_slice(4) do |first, second, third, fourth| %>
-  <div class="row w-100 mx-auto">
+  <div class="row mx-auto">
     <% if first.present? %><%= render partial: 'news/news_card', locals: { news: first } %> <% end %>
     <% if second.present? %><%= render partial: 'news/news_card', locals: { news: second } %> <% end %>
     <% if third.present? %><%= render partial: 'news/news_card', locals: { news: third } %> <% end %>
