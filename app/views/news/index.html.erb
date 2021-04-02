@@ -1,3 +1,6 @@
+<div class="float-right	d-none d-md-block">
+  <a class="twitter-timeline" data-height="600" href="https://twitter.com/hockamneco?ref_src=twsrc%5Etfw">Tweets by hockamneco</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
 <div class="container" >
   <%= render partial: 'news/news', locals: { news_list: @news_list } %>
   <div class="row" >
@@ -5,9 +8,7 @@
       <%= paginate @news_list %>
     </div>
   </div>
-  <div class="row w-100 p-1 mx-auto">
-    <div class="col-md-12">
-      <a class="twitter-timeline" data-height="600" href="https://twitter.com/hockamneco?ref_src=twsrc%5Etfw">Tweets by hockamneco</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
+  <div class="d-lg-none">
+  <a class="twitter-timeline" data-height="600" href="https://twitter.com/hockamneco?ref_src=twsrc%5Etfw">Tweets by hockamneco</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
 </div>
