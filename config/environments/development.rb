@@ -61,7 +61,7 @@ Rails.application.configure do
     user_name:             ENV['INQUIRY_FROM_MAIL_ADDRESS'],
     password:              ENV['INQUIRY_MAIL_PASSWJORD'],
     authentication: :login,
-    enable_starttls_auto:  true,
+    enable_starttls_auto:  false,
     raise_delivery_errors: true,
   }
 
