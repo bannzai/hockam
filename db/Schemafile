@@ -20,7 +20,8 @@ create_table "suzuri_goods", unsigned: true, force: :cascade, options: "ENGINE=I
   t.timestamps 
 end
 
-add_index :suzuri_goods, :item_id, unique: true
+# Suzuriのアイテムは一覧ページではitem_idが重複されたものが表示されている。同じキャラクターでカテゴリは別(シャツとかバッグとか)だったからその組み合わせの可能性
+# add_index :suzuri_goods, :item_id, unique: true
 
 create_table "news", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", comment: "Goods data from https://suzuri.jp/hockam" do |t|
   t.string :title, null: false

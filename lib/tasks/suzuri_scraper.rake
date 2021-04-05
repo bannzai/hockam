@@ -30,9 +30,14 @@ namespace :suzuri_scraper do
 
       puts "item_id: #{item_id}, name: #{name}, list_image_url: #{image_url}, category: #{category}, external_link: #{external_link}"
 
-      suzuri_good = SuzuriGood.find_or_initialize_by(item_id: item_id)
-      suzuri_good.update_attributes!(name: name, list_image_url: image_url, category: category, external_link: external_link)
-      suzuri_good.save!
+      next if show_url.nil? || image_url.nil? || item_id.nil?
+      suzuri_good = SuzuriGood.find_or_initialize_by(
+        item_id: item_id,
+        name: name,
+        list_image_url: image_url,
+        category: category,
+        external_link: external_link
+      ).save!
     }
 
     driver.quit
