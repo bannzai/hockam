@@ -96,7 +96,7 @@ GEM
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     debug_inspector (1.1.0)
-    diffy (3.4.0)
+    diffy (3.4.2)
     erubi (1.10.0)
     ffi (1.15.0)
     foreman (0.87.2)
